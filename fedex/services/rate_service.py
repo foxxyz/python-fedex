@@ -83,7 +83,10 @@ class FedexRateServiceRequest(FedexBaseService):
         # Start with no packages, user must add them.
         self.RequestedShipment.PackageCount = 0
         self.RequestedShipment.RequestedPackageLineItems = []
-                
+
+        # Add empty variable options
+        self.VariableOptions = None
+
         # This is good to review if you'd like to see what the data structure
         # looks like.
         self.logger.debug(self.RequestedShipment)
@@ -100,6 +103,7 @@ class FedexRateServiceRequest(FedexBaseService):
         """
         # Fire off the query.
         response = self.client.service.getRates(WebAuthenticationDetail=self.WebAuthenticationDetail,
+                                        VariableOptions=self.VariableOptions,
                                         ClientDetail=self.ClientDetail,
                                         TransactionDetail=self.TransactionDetail,
                                         Version=self.VersionId,
