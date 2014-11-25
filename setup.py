@@ -31,6 +31,6 @@ setup(name='fedex',
       license='BSD',
       classifiers=CLASSIFIERS,
       keywords=KEYWORDS,
-      requires=['suds-jurko'],
-      install_requires=['suds-jurko'],
+      requires=['sudsjurko'],
+      install_requires=['sudsjurko'],
 )
